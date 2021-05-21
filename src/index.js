@@ -3,11 +3,56 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { createStore } from 'redux';
+import allReducer from './reducers';
+import { Provider } from 'react-redux';
+
+const store = createStore(allReducer);
+
+
+// //STORE -> GLOBALIZED STATE
+
+
+// //ACTION 
+
+// const increment = () =>{
+//   return{
+//     type: "INCREMENT"
+//   }
+// }
+
+// const decrement = () =>{
+//   return{
+//     type: "DECREMENT"
+//   }
+// }
+
+// //REDUCER ->HOW YOUR ACTIONS TRANSFORM THE STATE INTO NEXT STATE
+
+// const counter = (state=0, action)=>{
+//   switch(action.type){
+//     case "INCREMENT": 
+//       return state + 1
+//     case "DECREMENT":
+//       return state - 1;
+//   }
+// }
+
+// let store = createStore(counter);
+
+// //Display it in the console
+
+// store.subscribe(()=> console.log(store.getState()))
+
+// //DISPATCH
+
+// store.dispatch(increment());
+
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <App />
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById('root')
 );
 
